@@ -1,0 +1,128 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpegml20crrht"]
+
+[ext_resource type="Texture2D" uid="uid://vdffxtxpjbfh" path="res://icon.svg" id="1_du72i"]
+[ext_resource type="Script" uid="uid://bndwj4jqqtcy1" path="res://Platformer2D/player.gd" id="1_h21tp"]
+[ext_resource type="Script" uid="uid://c8v84p55fmyib" path="res://Platformer2D/moving_platform.gd" id="3_u5p5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aulxn"]
+size = Vector2(32, 32)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h21tp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h21tp"]
+size = Vector2(256, 128)
+
+[node name="Platformer2D" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(496, 584)
+scale = Vector2(4, 4)
+script = ExtResource("1_h21tp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_aulxn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_du72i")
+
+[node name="CoyoteTimer" type="Timer" parent="Player"]
+process_callback = 0
+wait_time = 0.2
+one_shot = true
+
+[node name="BoundryBox" type="Node2D" parent="."]
+
+[node name="BoundryDown" type="StaticBody2D" parent="BoundryBox"]
+position = Vector2(448, 648)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundryBox/BoundryDown"]
+shape = SubResource("WorldBoundaryShape2D_h21tp")
+
+[node name="BoundryLeft" type="StaticBody2D" parent="BoundryBox"]
+position = Vector2(0, 488)
+rotation = 1.5707964
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundryBox/BoundryLeft"]
+shape = SubResource("WorldBoundaryShape2D_h21tp")
+
+[node name="BoundryRight" type="StaticBody2D" parent="BoundryBox"]
+position = Vector2(1152, 448)
+rotation = -1.5707964
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundryBox/BoundryRight"]
+shape = SubResource("WorldBoundaryShape2D_h21tp")
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Platform" type="StaticBody2D" parent="Platforms"]
+position = Vector2(832, 584)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform"]
+shape = SubResource("RectangleShape2D_h21tp")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/Platform"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14759105, 0.55108494, 0.5048851, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MovingPlatform" type="StaticBody2D" parent="Platforms"]
+position = Vector2(832, 424)
+script = ExtResource("3_u5p5m")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/MovingPlatform"]
+shape = SubResource("RectangleShape2D_h21tp")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/MovingPlatform"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25882354, 0.40784314, 1, 1)
+
+[node name="MovingPlatform2" type="AnimatableBody2D" parent="Platforms"]
+position = Vector2(384, 272)
+sync_to_physics = false
+script = ExtResource("3_u5p5m")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/MovingPlatform2"]
+shape = SubResource("RectangleShape2D_h21tp")
+
+[node name="ColorRect" type="ColorRect" parent="Platforms/MovingPlatform2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.68985057, 0.34124824, 0.5569927, 1)

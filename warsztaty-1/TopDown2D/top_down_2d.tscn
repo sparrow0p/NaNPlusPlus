@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyxtkc2d77fr3"]
+
+[ext_resource type="Script" uid="uid://c38badyugp1n6" path="res://TopDown2D/player.gd" id="1_icp15"]
+[ext_resource type="Texture2D" uid="uid://vdffxtxpjbfh" path="res://icon.svg" id="2_vt34c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvd30"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lb6kt"]
+size = Vector2(256, 128)
+
+[node name="TopDown2D" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(592, 376)
+scale = Vector2(4, 4)
+script = ExtResource("1_icp15")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_bvd30")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_vt34c")
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(288, 216)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+shape = SubResource("RectangleShape2D_lb6kt")
+
+[node name="ColorRect" type="ColorRect" parent="Platform"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25882354, 0.40784314, 1, 1)
