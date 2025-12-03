@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpegml20crrht"]
+
+[ext_resource type="Script" uid="uid://bndwj4jqqtcy1" path="res://Platformer2D/scripts/player.gd" id="1_576s7"]
+[ext_resource type="Texture2D" uid="uid://vdffxtxpjbfh" path="res://icon.svg" id="2_jw5l0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h21tp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h21tp"]
+size = Vector2(1152, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_576s7"]
+size = Vector2(256, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5p5m"]
+size = Vector2(20, 48)
+
+[node name="Platformer2D" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="BoundryBox" type="Node2D" parent="."]
+
+[node name="BoundryDown" type="StaticBody2D" parent="BoundryBox"]
+position = Vector2(448, 648)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundryBox/BoundryDown"]
+shape = SubResource("WorldBoundaryShape2D_h21tp")
+
+[node name="BoundryLeft" type="StaticBody2D" parent="BoundryBox"]
+position = Vector2(0, 488)
+rotation = 1.5707964
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundryBox/BoundryLeft"]
+shape = SubResource("WorldBoundaryShape2D_h21tp")
+
+[node name="BoundryRight" type="StaticBody2D" parent="BoundryBox"]
+position = Vector2(1152, 448)
+rotation = -1.5707964
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundryBox/BoundryRight"]
+shape = SubResource("WorldBoundaryShape2D_h21tp")
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(576, 584)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+shape = SubResource("RectangleShape2D_h21tp")
+
+[node name="ColorRect" type="ColorRect" parent="Platform"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -64.0
+offset_right = 576.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14759105, 0.55108494, 0.5048851, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(832, 456)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+shape = SubResource("RectangleShape2D_576s7")
+
+[node name="ColorRect" type="ColorRect" parent="Platform2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27539864, 0.4963326, 0.7293055, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(328, 400)
+scale = Vector2(4, 4)
+script = ExtResource("1_576s7")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_u5p5m")
+
+[node name="CoyoteTimer" type="Timer" parent="Player"]
+process_callback = 0
+wait_time = 0.2
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(1.9073486e-06, 6.000005)
+scale = Vector2(0.15625, 0.3750001)
+texture = ExtResource("2_jw5l0")
