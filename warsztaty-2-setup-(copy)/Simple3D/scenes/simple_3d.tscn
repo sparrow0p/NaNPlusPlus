@@ -1,7 +1,18 @@
-[gd_scene load_steps=38 format=3 uid="uid://ch0pc6i5oack3"]
+[gd_scene load_steps=41 format=3 uid="uid://ch0pc6i5oack3"]
 
 [ext_resource type="Texture2D" uid="uid://cglrkh8d603cy" path="res://Simple3D/images/16x32 All Animations-Sheet.png" id="1_iyfxt"]
 [ext_resource type="Script" uid="uid://wnf7hnir8sg5" path="res://Simple3D/scripts/character_body_3d.gd" id="1_mgj8q"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_mgj8q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgj8q"]
+albedo_color = Color(0.44557336, 0.49, 0.1568, 1)
+metallic = 0.65
+roughness = 0.35
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rmkd6"]
+material = SubResource("StandardMaterial3D_mgj8q")
+size = Vector2(10, 10)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5g2kk"]
 radius = 0.3
@@ -268,16 +279,28 @@ blend_mode = 1
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w3rso"]
+advance_mode = 2
+advance_expression = "state == \"run\""
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dyvsb"]
+advance_mode = 2
+advance_expression = "state == \"idle\""
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mgj8q"]
+advance_mode = 2
+advance_expression = "state == \"idle\""
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rmkd6"]
+advance_mode = 2
+advance_expression = "state == \"run\""
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bmnls"]
+advance_mode = 2
+advance_expression = "state == \"jump\""
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a5bbn"]
+advance_mode = 2
+advance_expression = "state == \"jump\""
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_bxvl3"]
 states/Start/position = Vector2(243, 100)
@@ -286,15 +309,26 @@ states/idle/position = Vector2(387, 100)
 states/jump/node = SubResource("AnimationNodeBlendSpace2D_7lk0x")
 states/jump/position = Vector2(458, -1)
 states/run/node = SubResource("AnimationNodeBlendSpace2D_o2r4g")
-states/run/position = Vector2(548, 100)
+states/run/position = Vector2(548, 100.479996)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_o2r4g"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_w3rso"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_dyvsb"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_mgj8q"), "jump", "run", SubResource("AnimationNodeStateMachineTransition_rmkd6"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_bmnls"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_a5bbn")]
 graph_offset = Vector2(-42, -32)
 
 [node name="Simple3D" type="Node3D"]
 metadata/_edit_lock_ = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape3D_mgj8q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015817761, 0)
+mesh = SubResource("PlaneMesh_rmkd6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(2.580957e-08, -0.5, 0.8660254, 1.4901161e-08, 0.8660254, 0.5, -1, -8.881783e-16, 2.9802322e-08, 9, 5, 0)
+light_color = Color(0.9433923, 0.8471579, 0.48497468, 1)
+light_energy = 3.0
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1, 0)
@@ -320,7 +354,11 @@ autoplay = "idle_down"
 
 [node name="AnimationTree" type="AnimationTree" parent="CharacterBody3D"]
 tree_root = SubResource("AnimationNodeStateMachine_bxvl3")
+advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0.1)
 parameters/jump/blend_position = Vector2(-0.2989691, 0.73991036)
 parameters/run/blend_position = Vector2(0, 0.1)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.93559194, 0.35308293, 0, -0.35308293, 0.93559194, 0, 0.5081235, 2.3947263)
