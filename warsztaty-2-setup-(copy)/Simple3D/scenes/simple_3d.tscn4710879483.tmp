@@ -1,7 +1,16 @@
-[gd_scene load_steps=38 format=3 uid="uid://ch0pc6i5oack3"]
+[gd_scene load_steps=41 format=3 uid="uid://ch0pc6i5oack3"]
 
 [ext_resource type="Texture2D" uid="uid://cglrkh8d603cy" path="res://Simple3D/images/16x32 All Animations-Sheet.png" id="1_iyfxt"]
 [ext_resource type="Script" uid="uid://wnf7hnir8sg5" path="res://Simple3D/scripts/character_body_3d.gd" id="1_mgj8q"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5g2kk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgj8q"]
+albedo_color = Color(0.30541116, 0.32413563, 0.1301761, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rmkd6"]
+material = SubResource("StandardMaterial3D_mgj8q")
+size = Vector2(10, 10)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5g2kk"]
 radius = 0.3
@@ -18,7 +27,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [0]
 }
 
@@ -78,7 +87,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_mgj8q"]
 resource_name = "jump_down"
-length = 0.3
+length = 0.4
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -87,15 +96,15 @@ tracks/0/path = NodePath("Sprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [36, 37, 38]
+"values": [36, 37, 38, 39]
 }
 
 [sub_resource type="Animation" id="Animation_rmkd6"]
 resource_name = "jump_side"
-length = 0.3
+length = 0.4
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -104,15 +113,15 @@ tracks/0/path = NodePath("Sprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [40, 41, 42]
+"values": [40, 41, 42, 43]
 }
 
 [sub_resource type="Animation" id="Animation_bmnls"]
 resource_name = "jump_up"
-length = 0.3
+length = 0.4
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -121,13 +130,13 @@ tracks/0/path = NodePath("Sprite3D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [44, 45, 46]
+"values": [44, 45, 46, 47]
 }
 
-[sub_resource type="Animation" id="Animation_a5bbn"]
+[sub_resource type="Animation" id="Animation_cthtk"]
 resource_name = "run_down"
 length = 0.9
 loop_mode = 1
@@ -190,7 +199,7 @@ _data = {
 &"jump_down": SubResource("Animation_mgj8q"),
 &"jump_side": SubResource("Animation_rmkd6"),
 &"jump_up": SubResource("Animation_bmnls"),
-&"run_down": SubResource("Animation_a5bbn"),
+&"run_down": SubResource("Animation_cthtk"),
 &"run_side": SubResource("Animation_o2r4g"),
 &"run_up": SubResource("Animation_umapk")
 }
@@ -213,9 +222,9 @@ blend_point_0/pos = Vector2(0, 1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_rmkd6")
 blend_point_1/pos = Vector2(0, -1)
 blend_point_2/node = SubResource("AnimationNodeAnimation_bmnls")
-blend_point_2/pos = Vector2(0.90000004, 0)
+blend_point_2/pos = Vector2(0.8, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_a5bbn")
-blend_point_3/pos = Vector2(-0.90000004, 0)
+blend_point_3/pos = Vector2(-0.8, 0)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bxvl3"]
@@ -236,9 +245,9 @@ blend_point_0/pos = Vector2(0, 1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_57u4x")
 blend_point_1/pos = Vector2(0, -1)
 blend_point_2/node = SubResource("AnimationNodeAnimation_a450b")
-blend_point_2/pos = Vector2(0.90000004, 0)
+blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_m24u7")
-blend_point_3/pos = Vector2(-0.90000004, 0)
+blend_point_3/pos = Vector2(-1, 0)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h7n4x"]
@@ -259,9 +268,9 @@ blend_point_0/pos = Vector2(0, -1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_6epop")
 blend_point_1/pos = Vector2(0, 1)
 blend_point_2/node = SubResource("AnimationNodeAnimation_gyncf")
-blend_point_2/pos = Vector2(0.90000004, 0)
+blend_point_2/pos = Vector2(0.8, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_f5kwi")
-blend_point_3/pos = Vector2(-0.90000004, 0)
+blend_point_3/pos = Vector2(-0.8, 0)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o2r4g"]
@@ -293,8 +302,16 @@ graph_offset = Vector2(-42, -32)
 [node name="Simple3D" type="Node3D"]
 metadata/_edit_lock_ = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_5g2kk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_rmkd6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.9330127, -0.35355338, 0.066987306, 0.15621111, 0.5656502, 0.80971473, -0.3241688, -0.74501, 0.5829878, 16, 16, 16)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1, 0)
@@ -322,5 +339,8 @@ autoplay = "idle_down"
 tree_root = SubResource("AnimationNodeStateMachine_bxvl3")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0.1)
-parameters/jump/blend_position = Vector2(-0.2989691, 0.73991036)
+parameters/jump/blend_position = Vector2(0, 0.1)
 parameters/run/blend_position = Vector2(0, 0.1)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.8660253, 0.49999994, 0, -0.49999994, 0.8660253, 0, 1.273858, 2.5212152)
