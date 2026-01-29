@@ -3,7 +3,6 @@ extends "res://scripts/character.gd"
 @onready var _player: CharacterBody2D = $"../Player"
 @onready var _agent: NavigationAgent2D = $NavigationAgent2D
 @onready var _attack_cd: Timer = $Timer
-@onready var _particles: GPUParticles2D = $GPUParticles2D
 
 func change_state() -> void:
 	#var player_vec := Vector2(_player.global_position - global_position)
@@ -27,7 +26,6 @@ func attack_player() -> void:
 	if _attack_cd.is_stopped():
 		if global_position.distance_to(_player.global_position) < 50:
 			_attack_cd.start()
-			_particles.emitting = true
 			if _player.has_node("HealthComponent"):
 				var hc = _player.get_node("HealthComponent")
 				hc.damage(1, 3000, global_position)
