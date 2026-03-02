@@ -1,23 +1,19 @@
 extends CharacterBody3D
 
-@onready var _fpc: Camera3D = $FPC
-@onready var _tpc: Camera3D = $"TPC Pivot/TPC"
-@onready var _tpc_pivot = $"TPC Pivot"
+@onready var _camera_pivot = $CameraPivot
+@onready var _camera = $CameraPivot/Camera
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var speed = 5
 var jump_speed = 5
 var mouse_sensitivity = 0.0032
-var camera = 0
+var max_zoom: float = 3
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)
-		_fpc.rotate_x(-event.relative.y * mouse_sensitivity)
-		_fpc.rotation.x = clampf(_fpc.rotation.x, -deg_to_rad(70), deg_to_rad(70))
-		
-		_tpc_pivot.rotate_x(-event.relative.y * mouse_sensitivity)
-		_tpc_pivot.rotation.x = clampf(_tpc_pivot.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+		_camera_pivot.rotate_x(-event.relative.y * mouse_sensitivity)
+		_camera_pivot.rotation.x = clampf(_camera_pivot.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 	
 	if event.is_action_pressed("left_click"):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
@@ -26,13 +22,20 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	if event.is_action_pressed("change_perspective"):
-		if camera:
-			_fpc.make_current()
-			camera = 0
+	if event.is_action_pressed("zoom_in"):
+		if _camera.position.z - 0.1 > 0:
+			var tween = get_tree().create_tween()
+			tween.tween_property(_camera, "position", _camera.position + Vector3(0, 0, -0.1), 0.05)
 		else:
-			_tpc.make_current()
-			camera = 1
+			_camera.position.z = 0
+	
+	if event.is_action_pressed("zoom_out"):
+		if _camera.position.z + 0.1 < max_zoom:
+			var tween = get_tree().create_tween()
+			tween.tween_property(_camera, "position", _camera.position + Vector3(0, 0, 0.1), 0.05)
+		else:
+			_camera.position.z = max_zoom
+
 
 func _physics_process(delta):
 	velocity.y += -gravity * delta

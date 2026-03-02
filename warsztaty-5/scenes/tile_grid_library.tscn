@@ -1,0 +1,174 @@
+[gd_scene format=4 uid="uid://deteb438onytw"]
+
+[ext_resource type="Texture2D" uid="uid://d20akbje3tofv" path="res://scenes/Grass_grass_top.png" id="1_1stbv"]
+[ext_resource type="Texture2D" uid="uid://bhoqmq7pmgg8n" path="res://scenes/GrassSide_grass_side.png" id="2_wermt"]
+[ext_resource type="Texture2D" uid="uid://c58ohkpgbiy8i" path="res://scenes/GrassSide_grass_top.png" id="3_vxw0d"]
+[ext_resource type="Texture2D" uid="uid://bcj1eemlphv6p" path="res://scenes/GrassSide_dirt.png" id="4_dlr5b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtd12"]
+resource_name = "grass top"
+cull_mode = 2
+albedo_texture = ExtResource("1_1stbv")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yotow"]
+_surfaces = [{
+"aabb": AABB(-1, 1, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "grass top",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAAAAAAAAAA//8AAAAAAAAAAAAA//8AAP//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1sq4y"]
+resource_name = "Grass_Cube_001"
+_surfaces = [{
+"aabb": AABB(-1, 1, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray("//8AAAAA//8AAAAA/////w=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_dtd12"),
+"name": "grass top",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAA/78AAAAA////vwAAAAAAAP+///8AAP///7////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yotow")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wermt"]
+size = Vector3(2, 0.001, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3paj0"]
+resource_name = "grass side"
+cull_mode = 2
+albedo_texture = ExtResource("2_wermt")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4w3cd"]
+resource_name = "grass top"
+cull_mode = 2
+albedo_texture = ExtResource("3_vxw0d")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_je08k"]
+resource_name = "grass bottom"
+cull_mode = 2
+albedo_texture = ExtResource("4_dlr5b")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ri432"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABAACAAYAAwAHAAUABwAEAAYABwAGAAUA"),
+"name": "grass side",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD//wAA//8AAP////8AAAAA////////AAD//wAAAAAAAA==")
+}, {
+"aabb": AABB(-1, 1, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "grass top",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAAAAAAAAAA//8AAAAAAAAAAAAA//8AAP//AAA=")
+}, {
+"aabb": AABB(-1, -1, -1, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "grass bottom",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//wAA//8AAP//AAAAAAAAAAAAAP//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wji1d"]
+resource_name = "GrassSide_Cube_001"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("AAD/////AAAAAAAA/////wAA/////wAAAAAAAP//////////AAAAAP//AAAAAP///////wAAAAD//wAAAAD//w=="),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0A"),
+"material": SubResource("StandardMaterial3D_3paj0"),
+"name": "grass side",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAAAAP//AAAAAP+//////////7//////AAD/v///AAD///+///8AAP//AIAAAP////8AgP///////wCAAAAAAP//AID/P/9//z//f/8//3//P/9/////f////3////9/////f/9/AAD/fwAA/38AAP9/AAD/f////3////9/////f///")
+}, {
+"aabb": AABB(-1, 1, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray("//8AAAAA//8AAAAA/////w=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_4w3cd"),
+"name": "grass top",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAA/78AAAAA////vwAAAAAAAP+///8AAP///7////9/////f////3////9/")
+}, {
+"aabb": AABB(-1, -1, -1, 2, 1e-05, 2),
+"attribute_data": PackedByteArray("AAAAAP///////wAAAAD//w=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_je08k"),
+"name": "grass bottom",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAA/z///wAA////P///AAAAAP8/AAAAAP///z8AAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ri432")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vxw0d"]
+size = Vector3(2, 2.00001, 2)
+
+[node name="TileGridLibrary" type="Node3D" unique_id=951259872]
+
+[node name="Grass2" type="Node3D" parent="." unique_id=1046992471]
+
+[node name="Grass" type="MeshInstance3D" parent="Grass2" unique_id=1793343695]
+mesh = SubResource("ArrayMesh_1sq4y")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Grass2/Grass" unique_id=724676670]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.000005, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grass2/Grass/StaticBody3D" unique_id=1203833182]
+shape = SubResource("BoxShape3D_wermt")
+
+[node name="GrassSide2" type="Node3D" parent="." unique_id=2054300893]
+
+[node name="GrassSide" type="MeshInstance3D" parent="GrassSide2" unique_id=1810673860]
+mesh = SubResource("ArrayMesh_wji1d")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GrassSide2/GrassSide" unique_id=734245432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.00679e-06, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrassSide2/GrassSide/StaticBody3D" unique_id=165992100]
+shape = SubResource("BoxShape3D_vxw0d")
