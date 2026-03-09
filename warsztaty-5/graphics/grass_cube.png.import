@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yl6s2tfml2p4"
-path.s3tc="res://.godot/imported/GrassSide_dirt.png-74638552ac24e48d3f71ef5bc05ec751.s3tc.ctex"
+uid="uid://bdmnanut671gv"
+path.s3tc="res://.godot/imported/grass_cube.png-70308dbfa84811a50fa916de8dadd4a3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/GrassSide_dirt.png"
-dest_files=["res://.godot/imported/GrassSide_dirt.png-74638552ac24e48d3f71ef5bc05ec751.s3tc.ctex"]
+source_file="res://graphics/grass_cube.png"
+dest_files=["res://.godot/imported/grass_cube.png-70308dbfa84811a50fa916de8dadd4a3.s3tc.ctex"]
 
 [params]
 

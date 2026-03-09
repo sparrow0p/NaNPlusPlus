@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcj1eemlphv6p"
-path.s3tc="res://.godot/imported/GrassSide_dirt.png-c678373b7ca1f744298e9f61f9af4550.s3tc.ctex"
+uid="uid://cklxplja2eate"
+path.s3tc="res://.godot/imported/grass_top.png-b88db549ec7bd4843e9e45cf8c6d4dae.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "4ca91173546d979227543b49bc3384c8"
-}
 
 [deps]
 
-source_file="res://scenes/GrassSide_dirt.png"
-dest_files=["res://.godot/imported/GrassSide_dirt.png-c678373b7ca1f744298e9f61f9af4550.s3tc.ctex"]
+source_file="res://textures/grass_top.png"
+dest_files=["res://.godot/imported/grass_top.png-b88db549ec7bd4843e9e45cf8c6d4dae.s3tc.ctex"]
 
 [params]
 
