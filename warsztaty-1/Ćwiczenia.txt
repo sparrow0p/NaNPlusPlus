@@ -1,0 +1,13 @@
+Ćwiczenie - "Rainbow":
+Stwórz nową scene
+Dodaj do niej Sprite2D i skrypt
+Po wciśnięciu spacji: ustaw kolor sprita na randomowy
+
+Tip: Zerknij na funkcje randf() / randf_range()
+
+Extra: Po wciśnięciu klawisz: 1/2/3: dodaj do odpowiednich kolorów rgb 0.1
+Po wciśnięciu spacji: zresetuj kolor sprita na czarny
+Zapwenij żeby kolor nie był ustawiony na więcej niż 1.0
+Co się stanie jak jakiś kolor będzie większy od 1.0?
+
+Tip: Zerknij na funkcje fmod()

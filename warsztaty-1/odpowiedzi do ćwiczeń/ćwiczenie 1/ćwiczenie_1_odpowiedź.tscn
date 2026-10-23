@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b1thae1h65not"]
+
+[ext_resource type="Script" uid="uid://dhj0dtdi5wxqf" path="res://odpowiedzi do ćwiczeń/ćwiczenie 1/ćwiczenie_1_odpowiedź.gd" id="1_d5487"]
+[ext_resource type="Texture2D" uid="uid://vdffxtxpjbfh" path="res://icon.svg" id="2_ggivu"]
+
+[node name="Ćwiczenie 1 Odpowiedź" type="Node2D" unique_id=1396839096 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_d5487")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1821367910]
+position = Vector2(577, 320)
+texture = ExtResource("2_ggivu")

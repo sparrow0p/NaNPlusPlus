@@ -1,0 +1,14 @@
+Ćwiczenie - "A Walk In The Park":
+Dodaj animację walk do AnimationPlayer2D playera
+Dodaj jako osobne zmienne @export: walk_speed i run_speed
+Player ma większe przyspieszenie, maksymalną prędkość i wyświetla animację "run", gdy gracz wciska shift
+W przciwnym wypadku player wyświetla animację "walk" i chodzi wolniej
+
+Tip: sprawdź funkcje Input.is_action_pressed(input_name)
+
+Ćwiczenie - "Curious Person":
+Dodaj drugą postać, która gra animację "idle"
+Kiedy gracz podejdzie za blisko, postać powinna zbliżyć się do playera
+(ustaw minimalny dystance żeby postać nie wchodziła na playera)
+
+Tip: sprawdź funkcje Vector2.distance_to(Vector2)
