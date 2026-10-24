@@ -8,6 +8,7 @@ radius = 4.0
 height = 11.0
 
 [node name="Tree" type="StaticBody2D" unique_id=912823330]
+metadata/_edit_group_ = true
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1944873283]
 z_index = -10

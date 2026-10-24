@@ -30,6 +30,7 @@ project/assembly_name="Warsztaty 2"
 
 folder_colors={
 "res://graphics/": "orange",
+"res://odpowiedzi_do_ćwiczeń/": "yellow",
 "res://scenes/": "blue",
 "res://scripts/": "purple"
 }
