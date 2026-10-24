@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://df4ubqj0qnibv"]
 
-[ext_resource type="Script" uid="uid://dksjwdxay27h6" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bp1vdh1dqpry" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://cxylvlnctai7l" path="res://graphics/madeline_sprite_sheet.png" id="2_g2els"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kb0ko"]

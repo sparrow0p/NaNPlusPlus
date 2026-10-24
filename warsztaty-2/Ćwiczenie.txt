@@ -13,5 +13,5 @@ Kiedy gracz podejdzie za blisko, postać powinna zbliżyć się do playera
 Używając Layer i Mask w inspektorze CharacterBody2D pod tabem CollisionObject2D spraw,
 aby player i druga postać nie kolidowały ze sobą, ale aby nadal kolidowały z drzewami
 
-Tip: sprawdź funkcje Vector2.distance_to(Vector2) i Vector2.normalized()
+Tip: sprawdź funkcje Vector2.distance_to(Vector2) i Vector2.normalized() i własność global_position
 Użyj @export, aby przypisać playera do zmienner

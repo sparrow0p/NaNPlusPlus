@@ -13,27 +13,14 @@ var direction: Vector2
 
 
 func _physics_process(delta: float) -> void:
-	direction = Input.get_vector("a", "d", "w", "s")
-	
-	# move(delta)
-	move_ćwiczenie(delta)
+	move(delta)
 	
 	move_and_slide()
 
 
 func move(delta: float) -> void:
-	if direction:
-		velocity = velocity.move_toward(direction * run_speed, acceleration * delta)
-		sprite.animation = "run"
-		
-		if direction.x:
-			sprite.flip_h = direction.x < 0.0
-	else:
-		velocity = velocity.move_toward(Vector2.ZERO, deceleration * delta)
-		sprite.animation = "idle"
-
-
-func move_ćwiczenie(delta: float) -> void:
+	direction = Input.get_vector("a", "d", "w", "s")
+	
 	if direction:
 		if Input.is_action_pressed("shift"):
 			velocity = velocity.move_toward(direction * run_speed, acceleration * delta)
