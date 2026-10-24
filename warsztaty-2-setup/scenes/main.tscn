@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dsrfng4c3ffn0"]
+
+[ext_resource type="Texture2D" uid="uid://brycmjeiginbk" path="res://graphics/simple_world.png" id="1_0wfyh"]
+
+[node name="Main" type="Node2D" unique_id=1843178493]
+y_sort_enabled = true
+
+[node name="WorldSprite" type="Sprite2D" parent="." unique_id=1934044525]
+z_index = -100
+texture = ExtResource("1_0wfyh")
+metadata/_edit_lock_ = true
